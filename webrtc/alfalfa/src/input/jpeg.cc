@@ -62,11 +62,11 @@ void JPEGDecompresser::begin_decoding( const Chunk & chunk )
                 const_cast<uint8_t *>( chunk.buffer() ),
                 chunk.size() );
 
-  if ( JPEG_HEADER_OK != jpeg_read_header( &decompresser_, true ) ) {
+  if ( JPEG_HEADER_OK != jpeg_read_header( &decompresser_, TRUE) ) {
     throw runtime_error( "invalid JPEG" );
   }
 
-  decompresser_.raw_data_out = true;
+  decompresser_.raw_data_out = TRUE;
 
   if ( decompresser_.jpeg_color_space != JCS_YCbCr ) {
     throw runtime_error( "not Y'CbCr" );
